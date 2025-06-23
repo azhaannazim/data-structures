@@ -1,13 +1,15 @@
-package org.example;
+package org.example.generics;
+
 
 import java.util.Arrays;
-
-public class ArrayList<T> {
+//in wild card we add additional constraint that only specific type of ArrayList
+// or its subclass type can be formed
+public class WildCardList<T extends Number> {
     private Object[] data;
     private static final int DEFAULT_SIZE = 10;
     private int size = 0;
 
-    public ArrayList(){
+    public WildCardList(){
         data = new Object[DEFAULT_SIZE];
     }
     public void add(T value){
@@ -51,7 +53,8 @@ public class ArrayList<T> {
     }
 
     public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<>();
+        WildCardList<Integer> list = new WildCardList<>();
+//        WildCardList<String> list2 = new WildCardList<>();
         for(int i=0;i<50;i++){
             list.add(i);
         }
