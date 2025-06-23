@@ -10,19 +10,12 @@ public class ArrayList<T> {
     public ArrayList(){
         data = new Object[DEFAULT_SIZE];
     }
+
     public void add(T value){
-        if(isFull()){
+        if(size == data.length){
             resize();
         }
         data[size++] = value;
-    }
-
-    @Override
-    public String toString() {
-        return "ArrayList{" +
-                "data=" + Arrays.toString(data) +
-                ", size=" + size +
-                '}';
     }
 
     private void resize() {
@@ -45,9 +38,12 @@ public class ArrayList<T> {
         }
         data[index] = value;
     }
-
-    private boolean isFull() {
-        return size == data.length;
+    @Override
+    public String toString() {
+        return "ArrayList{" +
+                "data=" + Arrays.toString(data) +
+                ", size=" + size +
+                '}';
     }
 
     public static void main(String[] args) {
